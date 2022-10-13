@@ -19,7 +19,7 @@ export const useUserStore = defineStore("user", {
     register(payload) {
       return axios({
         method: "post",
-        url: "https://masakapa.herokuapp.com/register",
+        url: "https://masakapa.herokuapp.com/users/register",
         data: payload,
       });
       // this.router.push("/login");
