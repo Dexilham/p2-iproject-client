@@ -131,6 +131,41 @@ export default {
     </div>
   </div>
   <!-- Deshes Area End -->
+  <div class="section-top2 text-center">
+    <button>
+      <ShareNetwork
+        network="twitter"
+        url="https://masakapanie.web.app"
+        title="Another Awesome Article"
+        description="This is another awesome article for awesome readers"
+      >
+        <span>Share on Twitter</span>
+      </ShareNetwork>
+    </button>
+    <button>
+      <ShareNetwork
+        network="facebook"
+        url="https://masakapanie.web.app"
+        title="Another Awesome Article"
+        description="This is another awesome article for awesome readers"
+        quote="bunch of nice recipes."
+        hashtags="cook,food"
+      >
+        Share on Facebook
+      </ShareNetwork>
+    </button>
+    <button>
+      <ShareNetwork
+        network="Email"
+        url="https://masakapanie.web.app"
+        title="Another Awesome Article"
+        description="This is another awesome article for awesome readers"
+      >
+        <span>Share on Email</span>
+      </ShareNetwork>
+    </button>
+  </div>
+
   <section class="comments" aria-labelledby="comment">
     <h2 id="comment">Comments</h2>
     <Disqus />
