@@ -19,10 +19,10 @@ export const useRecipeStore = defineStore("recipe", {
         });
         this.recipes = data.meals;
 
-        console.log(data, "<< data");
-        console.log(data.meals, "<<< data meals");
-        console.log(this.recipes, "this recipes");
-        console.log(data.meals[0], "<<< data meals 0");
+        // console.log(data, "<< data");
+        // console.log(data.meals, "<<< data meals");
+        // console.log(this.recipes, "this recipes");
+        // console.log(data.meals[0], "<<< data meals 0");
       } catch (error) {
         console.log(error);
         Swal.fire(error.message);
@@ -30,7 +30,7 @@ export const useRecipeStore = defineStore("recipe", {
     },
     async fetchSingleRecipe(id) {
       // console.log(payload);
-      const RecipeId = 52765; // 52772; // req.params.RecipeId;
+      const RecipeId = id; // 52772; // req.params.RecipeId;
       // const id = 52772;
 
       try {
