@@ -1,9 +1,29 @@
 <script>
 import { mapActions, mapState } from "pinia";
 import { useRecipeStore } from "../stores/recipe";
+import VueDisqus from "vue-disqus";
 
 export default {
-  props: ["recipe"],
+  computed: {
+    ...mapState(useRecipeStore, ["recipe"]),
+  },
+  created() {
+    this.$route.params;
+    this.fetchSingleRecipe();
+  },
+  methods: {
+    ...mapActions(useRecipeStore, ["fetchSingleRecipe"]),
+  },
+  // watch: {
+  //   "$route.params": {
+  //     handler(params) {
+  //       const id = params.id;
+  //       this.fetchSingleRecipe(id);
+  //     },
+
+  //     immediate: true,
+  //   },
+  // },
 };
 </script>
 
@@ -28,28 +48,127 @@ export default {
       </div>
       <div class="row">
         <div class="col-lg-5 col-md-6 align-self-center">
-          <h1>01.</h1>
+          <h1>{{ recipe.idMeal }}.</h1>
           <div class="deshes-text">
             <h3>
-              <span>Garlic</span><br />
-              green beans
+              <span>{{ recipe.strMeal }}</span
+              ><br />
             </h3>
-            <p class="pt-3">
-              Be. Seed saying our signs beginning face give spirit own beast
-              darkness morning moveth green multiply she'd kind saying one
-              shall, two which darkness have day image god their night. his
-              subdue so you rule can.
+            <br />
+            <h4 class="text-dark">Materials:</h4>
+            <p class="pt-3 text-dark">
+              {{ recipe.strMeasure1 }} {{ recipe.strIngredient1 }}
             </p>
-            <span class="style-change">$12.00</span>
+            <p class="text-dark">
+              {{ recipe.strMeasure2 }} {{ recipe.strIngredient2 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure3 }} {{ recipe.strIngredient2 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure4 }} {{ recipe.strIngredient4 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure5 }} {{ recipe.strIngredient5 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure6 }} {{ recipe.strIngredient6 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure7 }} {{ recipe.strIngredient7 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure8 }} {{ recipe.strIngredient8 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure9 }} {{ recipe.strIngredient9 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure10 }} {{ recipe.strIngredient10 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure11 }} {{ recipe.strIngredient11 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure12 }} {{ recipe.strIngredient12 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure13 }} {{ recipe.strIngredient13 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure14 }} {{ recipe.strIngredient14 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure15 }} {{ recipe.strIngredient15 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure16 }} {{ recipe.strIngredient16 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure17 }} {{ recipe.strIngredient17 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure18 }} {{ recipe.strIngredient18 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure19 }} {{ recipe.strIngredient19 }}
+            </p>
+            <p class="text-dark">
+              {{ recipe.strMeasure20 }} {{ recipe.strIngredient20 }}
+            </p>
+
+            <br />
+            <h4 class="text-dark">Instructions:</h4>
+            <p class="pt-3 text-dark">{{ recipe.strInstructions }}</p>
+            <span class="style-change"
+              >Original Recipe from {{ recipe.strArea }}</span
+            >
           </div>
         </div>
-        <div
-          class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0"
-        >
-          <img src="../assets/images/deshes1.png" alt="" class="img-fluid" />
+        <div class="col-lg-5 offset-lg-2 col-md-6 align-self-top mt-4 mt-md-0">
+          <img :src="recipe.strMealThumb" alt="" class="img-fluid" />
         </div>
       </div>
     </div>
   </div>
   <!-- Deshes Area End -->
+  <div class="section-top2 text-center">
+    <button>
+      <ShareNetwork
+        network="twitter"
+        url="https://masakapanie.web.app"
+        title="Another Awesome Article"
+        description="This is another awesome article for awesome readers"
+      >
+        <span>Share on Twitter</span>
+      </ShareNetwork>
+    </button>
+    <button>
+      <ShareNetwork
+        network="facebook"
+        url="https://masakapanie.web.app"
+        title="Another Awesome Article"
+        description="This is another awesome article for awesome readers"
+        quote="bunch of nice recipes."
+        hashtags="cook,food"
+      >
+        Share on Facebook
+      </ShareNetwork>
+    </button>
+    <button>
+      <ShareNetwork
+        network="Email"
+        url="https://masakapanie.web.app"
+        title="Another Awesome Article"
+        description="This is another awesome article for awesome readers"
+      >
+        <span>Share on Email</span>
+      </ShareNetwork>
+    </button>
+  </div>
+
+  <section class="comments" aria-labelledby="comment">
+    <h2 id="comment">Comments</h2>
+    <Disqus />
+  </section>
 </template>
