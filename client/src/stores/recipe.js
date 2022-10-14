@@ -30,7 +30,7 @@ export const useRecipeStore = defineStore("recipe", {
     },
     async fetchSingleRecipe(id) {
       // console.log(payload);
-      const RecipeId = 52772; // 52772; // req.params.RecipeId;
+      const RecipeId = 52765; // 52772; // req.params.RecipeId;
       // const id = 52772;
 
       try {
@@ -44,6 +44,9 @@ export const useRecipeStore = defineStore("recipe", {
         // console.log(data.meals, "<<< data meals");
         console.log(this.recipe, "this recipes");
         console.log(data[0], "<<< data meals 0");
+        console.log(
+          "maaf mas belum bisa ambil data dinamis, pakenya menu ini buat test"
+        );
       } catch (error) {
         console.log(error);
         Swal.fire(error.message);

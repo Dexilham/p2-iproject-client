@@ -8,21 +8,22 @@ export default {
     ...mapState(useRecipeStore, ["recipe"]),
   },
   created() {
+    this.$route.params;
     this.fetchSingleRecipe();
   },
   methods: {
     ...mapActions(useRecipeStore, ["fetchSingleRecipe"]),
   },
-  watch: {
-    "$route.params": {
-      handler(params) {
-        const id = params.id;
-        this.fetchSingleRecipe(id);
-      },
+  // watch: {
+  //   "$route.params": {
+  //     handler(params) {
+  //       const id = params.id;
+  //       this.fetchSingleRecipe(id);
+  //     },
 
-      immediate: true,
-    },
-  },
+  //     immediate: true,
+  //   },
+  // },
 };
 </script>
 
