@@ -9,7 +9,8 @@ export default {
   },
   created() {
     this.$route.params;
-    this.fetchSingleRecipe();
+    // console.log(this.$route.params, "<<<< route params");
+    this.fetchSingleRecipe(this.$route.params.RecipeId);
   },
   methods: {
     ...mapActions(useRecipeStore, ["fetchSingleRecipe"]),
@@ -119,7 +120,10 @@ export default {
 
             <br />
             <h4 class="text-dark">Instructions:</h4>
-            <p class="pt-3 text-dark">{{ recipe.strInstructions }}</p>
+            <p class="pt-3 text-dark">
+              <!-- <p class="pt-3 text-dark" style="white-space: pre"></p> buat newline, tapi berantakan -->
+              {{ recipe.strInstructions }}
+            </p>
             <span class="style-change"
               >Original Recipe from {{ recipe.strArea }}</span
             >
