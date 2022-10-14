@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 export const useRecipeStore = defineStore("recipe", {
   state: () => ({
-    baseUrl: "http://localhost:3000", // http://localhost:3000 or https://masakapa.herokuapp.com
+    baseUrl: "https://masakapa.herokuapp.com", // http://localhost:3000 or https://masakapa.herokuapp.com
     recipes: [],
     recipe: {},
   }),
